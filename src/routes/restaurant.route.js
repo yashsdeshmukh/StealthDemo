@@ -9,6 +9,7 @@ const router = express.Router();
 Discovery
 */
 router.get('/nearby/:radius', validate(restaurantValidation.nearby), restaurantController.nearby);
+router.get('/all/:name', validate(restaurantValidation.all), restaurantController.getByName);
 router.get('/all', validate(restaurantValidation.all), restaurantController.all);
 
 /*

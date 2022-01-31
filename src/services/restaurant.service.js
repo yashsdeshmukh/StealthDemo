@@ -28,8 +28,20 @@ const updateRating = async(restaurantId, updateBody) => {
   return restaurant;
 };
 
+const getRestaurantByName = async (name) => {
+  return Restaurant.findOne({name});
+  
+};
+
+const getAllRestaurants = async () => {
+  return Restaurant.find();
+  
+};
+
 module.exports = {
     getRestaurantByLocation,
     createRestaurant,
-    updateRating
+    updateRating,
+    getRestaurantByName,
+    getAllRestaurants
 }
