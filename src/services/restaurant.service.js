@@ -6,8 +6,8 @@ const googleMapsClient = require('@google/maps').createClient({
     Promise
 });
 
-
-const getRestaurantByLocation = async() => {
+const getRestaurantByLocation = async (lati, long) =>{
+    
 
 };
 
