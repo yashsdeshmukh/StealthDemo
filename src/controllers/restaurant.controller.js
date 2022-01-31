@@ -1,9 +1,9 @@
 const httpStatus = require('http-status');
 const catchAsync = require('../utils/catchAsync');
 const { restaurantService } = require('../services');
-
+const { Restaurant } = require('../model');
 const nearby = catchAsync(async (req, res) => {
-    
+    var radius = req.params.radius
     /*
     Request to get Lat and longitude
     */
@@ -40,7 +40,7 @@ const nearby = catchAsync(async (req, res) => {
     var request = require('request');
     var options = {
     'method': 'GET',
-    'url': `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${lati}%2C${long}&radius=1500&type=restaurant&key=YOUR_API_KEY`,
+    'url': `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${lati}%2C${long}&radius=${radius}&type=restaurant&key=YOUR_API_KEY`,
     'headers': {
     }
     };
@@ -60,7 +60,9 @@ const nearby = catchAsync(async (req, res) => {
     
 });
 
-
+const all = catchAsync(async (req, res) => {
+    
+});
 const new_rating = catchAsync(async (req, res) => {
     const restaurant = await restaurantService.createRestaurant(req.body);
     res.status(httpStatus.CREATED).send(restaurant);
@@ -76,4 +78,5 @@ module.exports = {
     nearby,
     new_rating,
     update_rating,
+    all
 }

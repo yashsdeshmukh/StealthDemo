@@ -8,8 +8,8 @@ const router = express.Router();
 /*
 Discovery
 */
-router.get('/nearby', validate(restaurantValidation.nearby), restaurantController.nearby);
-// router.get('/all', validate(restaurantValidation.all), restaurantController.all);
+router.get('/nearby/:radius', validate(restaurantValidation.nearby), restaurantController.nearby);
+router.get('/all', validate(restaurantValidation.all), restaurantController.all);
 
 /*
 ratings
