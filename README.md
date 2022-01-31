@@ -24,6 +24,8 @@ Restaurant discovery
 
     - Find nearby restaurant (MapsApi Needed)
 
+    - Get all restaurants added by user
+
 
 Note - I have purposely excluded the Maps API key for security/billing reasons
 
@@ -47,5 +49,3 @@ Auth using JWT access and refresh tokens
 Restaurant discovery 
 
     - List nearby restaurants by rating
-
-    - Get all restaurants added by user

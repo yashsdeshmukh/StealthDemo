@@ -2,6 +2,7 @@ const httpStatus = require('http-status');
 const catchAsync = require('../utils/catchAsync');
 const { restaurantService } = require('../services');
 const { Restaurant } = require('../model');
+const config = require('../config/config');
 const nearby = catchAsync(async (req, res) => {
     var radius = req.params.radius
     /*
@@ -40,7 +41,7 @@ const nearby = catchAsync(async (req, res) => {
     var request = require('request');
     var options = {
     'method': 'GET',
-    'url': `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${lati}%2C${long}&radius=${radius}&type=restaurant&key=YOUR_API_KEY`,
+    'url': `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=cruise&location=${lati}%2C${long}&radius=${radius}&type=restaurant&key=${config.maps.maps_key}`,
     'headers': {
     }
     };
